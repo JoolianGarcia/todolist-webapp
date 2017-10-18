@@ -1,6 +1,9 @@
 //App as an object
 var todoList = {
+  //intial array of Tasks
   todos: [],
+
+  //Method that displays array of tasks in a readable way
   displayTodos: function(){
       if(this.todos.length === 0){
         console.log("Your To Do List is empty");
@@ -16,7 +19,7 @@ var todoList = {
       }
     },
 
-  //Adds New Tasks, passed them as a string to be added to the list
+  //Adds to tasks
   addTodo: function(todoText){
     this.todos.push({
       todoText: todoText,
@@ -25,16 +28,21 @@ var todoList = {
     this.displayTodos();
   },
 
+  //Changes task's name
   changeTodo: function(position, todoText){
     this.todos[position].todoText = todoText;
     this.displayTodos();
   },
 
+  //Changes completedness of the task
   toggleCompleted: function(position){
     this.todos[position].completed = true;
      this.displayTodos();
   },
 
+  //Toggles completedness of all tasks
+  //If all complete -> all incompleted
+  //Else if some complete or non complete -> all completed
   toggleAll: function(){
 
     var totalTodos = this.todos.length;
@@ -48,27 +56,25 @@ var todoList = {
     }
 
     if(completedTodos === totalTodos){
-      for(var j = 0; j < totalTodos; j++){
-      this.todos[j].completed = false;
+      for(var i = 0; i < totalTodos; i++){
+      this.todos[i].completed = false;
       }
 
-    } else if(completedTodos !== totalTodos){
-      for(var y = 0; y < totalTodos; y++){
-      this.todos[y].completed = true;
+    } else {
+      for(var i = 0; i < totalTodos; i++){
+      this.todos[i].completed = true;
       }
     }
      this.displayTodos();
   },
 
+  //Deletes specific task
   deleteTodo: function(position){
     this.todos.splice(position,1);
     this.displayTodos();
   }
 
 };
-
-
-
 
 
 
