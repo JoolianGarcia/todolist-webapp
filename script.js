@@ -1,12 +1,9 @@
 //App as an object
-
-
-
 var todoList = {
   todos: [],
   displayTodos: function(){
       if(this.todos.length === 0){
-        console.log("Your To Do List is empty ");
+        console.log("Your To Do List is empty");
      } else {
        console.log('Things to do:');
        for (var i= 0; i < this.todos.length; i++){
@@ -19,6 +16,7 @@ var todoList = {
       }
     },
 
+  //Adds New Tasks, passed them as a string to be added to the list
   addTodo: function(todoText){
     this.todos.push({
       todoText: todoText,
@@ -39,30 +37,27 @@ var todoList = {
 
   toggleAll: function(){
 
-     //IF everything is true, make everything false
+    var totalTodos = this.todos.length;
+    var completedTodos = 0;
 
-    let totalTodos = this.todos.length;
-    let completedTodos = 0;
-
-    for(var i = 0 ; i < this.todos.length;i++){
+    //Make the counter
+    for(var i = 0 ; i < totalTodos;i++){
       if(this.todos[i].completed === true){
         completedTodos++;
       }
     }
 
     if(completedTodos === totalTodos){
-      for(var j = 0; j < this.todos.length; j++){
-      console.log("( ) ", this.todos[j].todoText);
+      for(var j = 0; j < totalTodos; j++){
+      this.todos[j].completed = false;
       }
-      this.displayTodos();
-    }
 
-    else {
-      for(var y = 0; y < this.todos.length; y++){
-      console.log("(x) ", this.todos[y].todoText);
+    } else if(completedTodos !== totalTodos){
+      for(var y = 0; y < totalTodos; y++){
+      this.todos[y].completed = true;
       }
-      this.displayTodos();
     }
+     this.displayTodos();
   },
 
   deleteTodo: function(position){
@@ -71,6 +66,9 @@ var todoList = {
   }
 
 };
+
+
+
 
 
 
