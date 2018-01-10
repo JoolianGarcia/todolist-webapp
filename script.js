@@ -76,6 +76,9 @@ var todoList = {
 
 };
 
+var displayTodosButton = document.getElementById('displayTodosButton');
+console.log(displayTodosButton);
 
-
-console.log("Hello World, this is a test");
+displayTodosButton.addEventListener('click', function(){
+  todoList.displayTodos();
+})
