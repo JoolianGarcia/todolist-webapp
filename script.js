@@ -72,20 +72,16 @@ var todoList = {
   deleteTodo: function(position){
     this.todos.splice(position,1);
     this.displayTodos();
+  },
+
+  //Object that includes all methods for buttons
+  var handlers = {
+    displayTodos: function(){
+      todoList.displayTodos();
+    },   
+    toggleAll: function(){
+      todoList.toggleAll();
+    }
   }
-
 };
-
-var displayTodosButton = document.getElementById('displayTodosButton');
-console.log(displayTodosButton);
-
-displayTodosButton.addEventListener('click', function(){
-  todoList.displayTodos();
-})
-
-var toggleAllButton = document.getElementById('toggleAllButton');
-
-toggleAllButton.addEventListener('click', function(){
-  todoList.toggleAll();
-})
 
