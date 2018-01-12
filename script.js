@@ -74,14 +74,24 @@ var todoList = {
     this.displayTodos();
   },
 
-  //Object that includes all methods for buttons
-  var handlers = {
-    displayTodos: function(){
-      todoList.displayTodos();
-    },   
-    toggleAll: function(){
-      todoList.toggleAll();
-    }
-  }
 };
+
+
+//Object that includes all methods for buttons
+var handlers = {
+  displayTodos: function(){
+    todoList.displayTodos();
+  },   
+  toggleAll: function(){
+    todoList.toggleAll();
+  },
+
+  addTodo: function(){
+    var newToDo = document.getElementById('addTodoTextInput').value;
+    console.log(document.getElementById('addTodoTextInput').value);
+    todoList.addTodo(newToDo);
+    newTodo = document.getElementById('addTodoTextInput').value = '';
+  },
+  
+}
 
