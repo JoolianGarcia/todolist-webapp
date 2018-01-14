@@ -82,14 +82,16 @@ var handlers = {
   displayTodos: function(){
     todoList.displayTodos();
   },   
+  //Triggers todoList.toggleAll(); via a button
   toggleAll: function(){
     todoList.toggleAll();
   },
-
+//Triggers add.toggleAll(); via a button, adds Todo to list
   addTodo: function(){
+    //scoops text from text box
     var newToDo = document.getElementById('addTodoTextInput').value;
-    console.log(document.getElementById('addTodoTextInput').value);
     todoList.addTodo(newToDo);
+    //clears text input box after given task is added
     newTodo = document.getElementById('addTodoTextInput').value = '';
   },
   
