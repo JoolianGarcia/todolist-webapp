@@ -89,10 +89,23 @@ var handlers = {
 //Triggers add.toggleAll(); via a button, adds Todo to list
   addTodo: function(){
     //scoops text from text box
-    var newToDo = document.getElementById('addTodoTextInput').value;
-    todoList.addTodo(newToDo);
+    var newToDo = document.getElementById('addTodoTextInput');
+    todoList.addTodo(newToDo.value);
     //clears text input box after given task is added
-    newTodo = document.getElementById('addTodoTextInput').value = '';
+    newToDo.value = '';
+  },
+  //Triggers todoList.changeTodo(); via a button. Inserts new text in give numeric position
+  changeTodo: function(){
+    var todoChangePosition = document.getElementById('changeTodoPositionInput');
+    var todoChangeText = document.getElementById('changeTodoText');
+    todoList.changeTodo(todoChangePosition.valueAsNumber,todoChangeText.value);
+    todoChangePosition.value = '';
+    todoChangeText.value = '';
+  },
+  
+   //Triggers todoList.toggleAll(); via a button
+   deleteTodo: function(){
+    todoList.deleteTodo();
   },
   
 }
