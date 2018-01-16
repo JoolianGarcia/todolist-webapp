@@ -96,16 +96,18 @@ var handlers = {
   },
   //Triggers todoList.changeTodo(); via a button. Inserts new text in give numeric position
   changeTodo: function(){
-    var todoChangePosition = document.getElementById('changeTodoPositionInput');
-    var todoChangeText = document.getElementById('changeTodoText');
-    todoList.changeTodo(todoChangePosition.valueAsNumber,todoChangeText.value);
-    todoChangePosition.value = '';
-    todoChangeText.value = '';
+    var changeTodoPositionInput = document.getElementById('changeTodoPositionInput');
+    var changeTodoText = document.getElementById('changeTodoText');
+    todoList.changeTodo(changeTodoPositionInput.valueAsNumber,changeTodoText.value);
+    changeTodoPositionInput.value = '';
+    changeTodoText.value = '';
   },
   
    //Triggers todoList.toggleAll(); via a button
    deleteTodo: function(){
-    todoList.deleteTodo();
+    var deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
+    todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
+    deleteTodoPositionInput =  '';
   },
   
 }
