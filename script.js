@@ -109,6 +109,12 @@ var handlers = {
     todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
     deleteTodoPositionInput =  '';
   },
+
+  toggleCompleted: function(){
+    var toggleCompletedPositionInput = document.getElementById('toggleCompletedPositionInput');
+    todoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
+    toggleCompletedPositionInput = '';
+  }
   
 }
 
