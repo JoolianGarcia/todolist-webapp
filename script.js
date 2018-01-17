@@ -117,15 +117,14 @@ var handlers = {
     todoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
     toggleCompletedPositionInput = '';
   }
-}
+};
 
 //Responsible for screen output functions
 var view = {
-  displayTodos = function(){
+  displayTodos: function(){
     var todoUL = document.querySelector('ul');
     var todoLi = document.createElement('li');
     todoUL.appendChild(todoLi);
-  }
-
+  },
 }
 
