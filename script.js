@@ -122,7 +122,9 @@ var handlers = {
 //Responsible for screen output functions
 var view = {
   displayTodos = function(){
-    var
+    var todoUL = document.querySelector('ul');
+    var todoLi = document.createElement('li');
+    todoUL.appendChild(todoLi);
   }
 
 }
