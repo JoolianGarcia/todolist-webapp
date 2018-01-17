@@ -78,6 +78,7 @@ var todoList = {
 
 
 //Object that includes all methods for buttons
+//Separates functions for UI
 var handlers = {
   displayTodos: function(){
     todoList.displayTodos();
