@@ -111,11 +111,19 @@ var handlers = {
     deleteTodoPositionInput =  '';
   },
 
+  //Triggers todoList.toggleCompleted(); via a button. Takes number value to spcify which todo to toggle complete
   toggleCompleted: function(){
     var toggleCompletedPositionInput = document.getElementById('toggleCompletedPositionInput');
     todoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
     toggleCompletedPositionInput = '';
   }
-  
+}
+
+//Responsible for screen output functions
+var view = {
+  displayTodos = function(){
+    var
+  }
+
 }
 
