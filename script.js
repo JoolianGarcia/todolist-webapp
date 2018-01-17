@@ -122,9 +122,12 @@ var handlers = {
 //Responsible for screen output functions
 var view = {
   displayTodos: function(){
+    var todoUL = document.querySelector('ul');
+    todoUL.innerHTML = 'These are your todos';
     for(var i = 0; i < todoList.todos.length; i++){
-      var todoUL = document.querySelector('ul');
+      var currentTodo = todoList.todos[i].todoText;
       var todoLi = document.createElement('li');
+      todoLi.innerHTML = currentTodo;
       todoUL.appendChild(todoLi);
     };
 
