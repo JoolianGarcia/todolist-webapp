@@ -1,0 +1,11 @@
+html {
+    height: 100%;
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 100;
+    padding: 100px;
+}
+
+h1{
+    color: slateblue;
+    font-weight: 100;
+}
