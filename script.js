@@ -123,11 +123,15 @@ var handlers = {
 var view = {
   displayTodos: function(){
     var todoUL = document.querySelector('ul');
-    todoUL.innerHTML = 'These are your todos';
+    todoUL.innerHTML = '';
     for(var i = 0; i < todoList.todos.length; i++){
-      var currentTodo = todoList.todos[i].todoText;
       var todoLi = document.createElement('li');
-      todoLi.innerHTML = currentTodo;
+
+      var todoTextWithCompletion = '';
+      if(todoList.todos[i].completed === true){
+        todoTextWithCompletion = '(x)';
+      } else {todoTextWithCompletion = '( )'};
+      todoLi.textContent = todoTextWithCompletion + '' + todoList.todos[i].todoText;
       todoUL.appendChild(todoLi);
     };
 
