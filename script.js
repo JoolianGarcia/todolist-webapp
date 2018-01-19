@@ -86,6 +86,7 @@ var handlers = {
   //Triggers todoList.toggleAll(); via a button
   toggleAll: function(){
     todoList.toggleAll();
+    view.displayTodos();
   },
 //Triggers add.toggleAll(); via a button, adds Todo to list
   addTodo: function(){
@@ -94,6 +95,7 @@ var handlers = {
     todoList.addTodo(newToDo.value);
     //clears text input box after given task is added
     newToDo.value = '';
+    view.displayTodos();
   },
   //Triggers todoList.changeTodo(); via a button. Inserts new text in give numeric position
   changeTodo: function(){
@@ -102,6 +104,7 @@ var handlers = {
     todoList.changeTodo(changeTodoPositionInput.valueAsNumber,changeTodoText.value);
     changeTodoPositionInput.value = '';
     changeTodoText.value = '';
+    view.displayTodos();
   },
   
    //Triggers todoList.toggleAll(); via a button
@@ -109,6 +112,7 @@ var handlers = {
     var deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
     todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
     deleteTodoPositionInput =  '';
+    view.displayTodos();
   },
 
   //Triggers todoList.toggleCompleted(); via a button. Takes number value to spcify which todo to toggle complete
@@ -116,6 +120,7 @@ var handlers = {
     var toggleCompletedPositionInput = document.getElementById('toggleCompletedPositionInput');
     todoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
     toggleCompletedPositionInput = '';
+    view.displayTodos();
   }
 };
 
@@ -126,15 +131,15 @@ var view = {
     todoUL.innerHTML = '';
     for(var i = 0; i < todoList.todos.length; i++){
       var todoLi = document.createElement('li');
-
       var todoTextWithCompletion = '';
+
       if(todoList.todos[i].completed === true){
-        todoTextWithCompletion = '(x)';
-      } else {todoTextWithCompletion = '( )'};
-      todoLi.textContent = todoTextWithCompletion + '' + todoList.todos[i].todoText;
+        todoTextWithCompletion = '(x) ';
+      } else {todoTextWithCompletion = '( ) '};
+
+      todoLi.textContent = todoTextWithCompletion + todoList.todos[i].todoText;
       todoUL.appendChild(todoLi);
     };
-
   },
 }
 
