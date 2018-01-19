@@ -1,12 +1,15 @@
 body {
     width: 100%;
-    font-family: 'Helvetica', sans-serif;
-    font-weight: 100;
+    margin: 0 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;;
 }
 
 h1{
-    color: slateblue;
+    text-transform: uppercase;
+    color: white;
     font-weight: 100;
+    line-height: 0.4em;
 }
 
 #main{
@@ -16,10 +19,18 @@ h1{
 }
 
 #header{
+    height: 50px;
+    background-color: slateblue;
+    color: white;
+    font-size: 2em;
+    line-height: 1.4em;
     border-bottom: 1px solid black;
+    padding-left: 5%;
+    
 }
 
 #buttons{
-    
+    margin: 20px auto;
+    width:80%;
 }
 
