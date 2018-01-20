@@ -20,11 +20,10 @@ h1{
 
 #header{
     height: 50px;
-    background-color: slateblue;
-    color: white;
+    color: grey;
     font-size: 2em;
     line-height: 1.4em;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid lightgray;
     padding-left: 5%;
     
 }
