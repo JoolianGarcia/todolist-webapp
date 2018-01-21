@@ -79,10 +79,7 @@ var todoList = {
 
 //Object that includes all methods for buttons
 //Separates functions for UI
-var handlers = {
-  displayTodos: function(){
-    todoList.displayTodos();
-  },   
+var handlers = { 
   //Triggers todoList.toggleAll(); via a button
   toggleAll: function(){
     todoList.toggleAll();
@@ -111,8 +108,9 @@ var handlers = {
    deleteTodo: function(){
     var deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
     todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
-    deleteTodoPositionInput =  '';
+     deleteTodoPositionInput.value =  '';
     view.displayTodos();
+   
   },
 
   //Triggers todoList.toggleCompleted(); via a button. Takes number value to spcify which todo to toggle complete
