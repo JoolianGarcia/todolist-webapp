@@ -33,3 +33,17 @@ h1{
     width:80%;
 }
 
+ul{
+    margin: 0 auto;
+    width:90%;
+
+}
+
+li{
+    margin: 0 auto;
+    width: 90%; 
+    height: 3em;
+    border-bottom: 1px solid lightgray;
+
+}
+

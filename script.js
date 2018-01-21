@@ -59,11 +59,13 @@ var todoList = {
 //Object that includes all methods for buttons
 //Separates functions for UI
 var handlers = { 
+
   //Triggers todoList.toggleAll(); via a button
   toggleAll: function(){
     todoList.toggleAll();
     view.displayTodos();
   },
+
 //Triggers add.toggleAll(); via a button, adds Todo to list
   addTodo: function(){
     //scoops text from text box
@@ -73,6 +75,7 @@ var handlers = {
     newToDo.value = '';
     view.displayTodos();
   },
+
   //Triggers todoList.changeTodo(); via a button. Inserts new text in give numeric position
   changeTodo: function(){
     var changeTodoPositionInput = document.getElementById('changeTodoPositionInput');
@@ -103,6 +106,7 @@ var handlers = {
 
 //Responsible for screen output functions
 var view = {
+  
   displayTodos: function(){
     var todoUL = document.querySelector('ul');
     todoUL.innerHTML = '';
