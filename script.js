@@ -118,11 +118,17 @@ var view = {
         todoTextWithCompletion = '(x) ';
       } else {todoTextWithCompletion = '( ) '};
 
-      todoLi.textContent = todoTextWithCompletion + todoList.todos[i].todoText;
+
+      todoLi.textContent = todoTextWithCompletion + todoList.todos[i].todoText + this.createDeleteButton();;
       todoUL.appendChild(todoLi);
     };
   },
+
+  createDeleteButton: function(){
+    var deleteButton = document.createElement('button');
+    // deleteButton.value = 'Delete Todo';
+    return deleteButton;
+
+  }
+
 }
-
-
-
