@@ -142,6 +142,5 @@ var view = {
 var todosUL = document.querySelector('ul');
 
 todosUL.addEventListener('click', function(event){
-  console.log('you are clicking in the UL HTML element');
-  console.log(event.path[0]);
+  console.log(event.target.parentNode.id);
 })
