@@ -141,6 +141,7 @@ var view = {
 
 var todosUL = document.querySelector('ul');
 
+// Tracks click within 'ul', looks for button click
 todosUL.addEventListener('click', function(event){
   console.log(event.target.parentNode.id);
 })
