@@ -143,5 +143,18 @@ var todosUL = document.querySelector('ul');
 
 // Tracks click within 'ul', looks for button click
 todosUL.addEventListener('click', function(event){
-  console.log(event.target.parentNode.id);
+  console.log(event.target.className);
+
+  var buttonCheck = event.target.className;
+
+  //Check if deletebutton was clicked on
+  if(buttonCheck == 'deleteButtons'){
+    console.log('ready to delete item')
+  }
+
+  //if element clicked, is the delete button: delete that li
+
+
+  //update id numbering system
+  //refresh?
 })
