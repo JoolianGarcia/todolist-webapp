@@ -29,21 +29,25 @@ var todoList = {
     var completedTodos = 0;
     var totalTodos = this.todos.length;
 
+    //Get number of completed Todos
     this.todos.forEach(function (todo) {
       if (todo.completed === true) {
         completedTodos++;
       }
     });
 
-    if (completedTodos === totalTodos) {
-      this.todos.forEach(function (todo) {
+
+    this.todos.forEach(function (todo) {
+      //Case 1: If everything is true, make everything false
+      if (completedTodos === totalTodos) {
         todo.completed = false;
-      });
-    } else {
-      this.todos.forEach(function(todo){
+      }
+      //Case 2: Otherwise, make everything true
+      else {
         todo.completed = true;
-      })
-    };
+      };
+    });
+
   },
 
   //Deletes specific task
@@ -105,23 +109,22 @@ var view = {
   displayTodos: function () {
     var todoUL = document.querySelector('ul');
     todoUL.innerHTML = '';
-    for (var i = 0; i < todoList.todos.length; i++) {
+
+    todoList.todos.forEach(function (todo, index) {
       var todoLi = document.createElement('li');
-      var todo = todoList.todos[i];
       var todoTextWithCompletion = '';
 
-      if (todoList.todos[i].completed === true) {
+      if (todo.completed === true) {
         todoTextWithCompletion = '(x) ' + todo.todoText;
       } else {
         todoTextWithCompletion = '( ) ' + todo.todoText
       };
 
-
       todoLi.textContent = todoTextWithCompletion;
-      todoLi.id = i;
+      todoLi.id = index;
       todoLi.appendChild(this.createDeleteButton());
       todoUL.appendChild(todoLi);
-    };
+    }, this);
   },
 
   createDeleteButton: function () {
