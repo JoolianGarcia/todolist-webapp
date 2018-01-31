@@ -25,27 +25,25 @@ var todoList = {
   //If all complete -> all incompleted
   //Else if some complete or non complete -> all completed
   toggleAll: function () {
-
-    var totalTodos = this.todos.length;
+    // debugger;
     var completedTodos = 0;
+    var totalTodos = this.todos.length;
 
-    //Make the counter
-    for (var i = 0; i < totalTodos; i++) {
-      if (this.todos[i].completed === true) {
+    this.todos.forEach(function (todo) {
+      if (todo.completed === true) {
         completedTodos++;
       }
-    }
+    });
 
     if (completedTodos === totalTodos) {
-      for (var i = 0; i < totalTodos; i++) {
-        this.todos[i].completed = false;
-      }
-
+      this.todos.forEach(function (todo) {
+        todo.completed = false;
+      });
     } else {
-      for (var i = 0; i < totalTodos; i++) {
-        this.todos[i].completed = true;
-      }
-    }
+      this.todos.forEach(function(todo){
+        todo.completed = true;
+      })
+    };
   },
 
   //Deletes specific task
@@ -131,20 +129,25 @@ var view = {
     deleteButton.textContent = 'Delete';
     deleteButton.className = 'deleteButtons'
     return deleteButton;
-  }
+  },
+
+  //Method of adding event listeners
+  setUpEventListeners: function () {
+    //selects UL that contains all todos
+    var todosUL = document.querySelector('ul');
+
+    //Adds an event listenr to a parent element (Event Delegation Pattern)
+    // Tracks click within 'ul', looks for button click and passes event
+    todosUL.addEventListener('click', function (event) {
+      var buttonCheck = event.target;
+
+      //Check if deletebutton was clicked on
+      if (buttonCheck.className === 'deleteButtons') {
+        //Delete that li via handlers.deleteTodo method
+        handlers.deleteTodo(parseInt(buttonCheck.parentNode.id));
+      };
+    });
+  },
 };
 
-var todosUL = document.querySelector('ul');
-
-// Tracks click within 'ul', looks for button click
-todosUL.addEventListener('click', function(event){
-
-  var buttonCheck = event.target;
-
-  //Check if deletebutton was clicked on
-  if(buttonCheck.className === 'deleteButtons'){
-  //if element clicked, is the delete button: delete that li
-    console.log('ready to delete item');
-    handlers.deleteTodo(event.target.parentNode.id);
-  };
-});
+view.setUpEventListeners();
