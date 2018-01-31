@@ -86,13 +86,10 @@ var handlers = {
     view.displayTodos();
   },
 
-  //Triggers todoList.toggleAll(); via a button
-  deleteTodo: function () {
-    var deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
-    todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
-    deleteTodoPositionInput.value = '';
+  //Triggers todoList.deleteTodo
+  deleteTodo: function (position) {
+    todoList.deleteTodo(position);
     view.displayTodos();
-
   },
 
   //Triggers todoList.toggleCompleted(); via a button. Takes number value to spcify which todo to toggle complete
@@ -106,7 +103,7 @@ var handlers = {
 
 //Responsible for screen output functions
 var view = {
-
+  //Re-prints the todoList on every call, updating to the latest version
   displayTodos: function () {
     var todoUL = document.querySelector('ul');
     todoUL.innerHTML = '';
@@ -134,27 +131,20 @@ var view = {
     deleteButton.textContent = 'Delete';
     deleteButton.className = 'deleteButtons'
     return deleteButton;
-
   }
-
 };
 
 var todosUL = document.querySelector('ul');
 
 // Tracks click within 'ul', looks for button click
 todosUL.addEventListener('click', function(event){
-  console.log(event.target.className);
 
-  var buttonCheck = event.target.className;
+  var buttonCheck = event.target;
 
   //Check if deletebutton was clicked on
-  if(buttonCheck == 'deleteButtons'){
-    console.log('ready to delete item')
-  }
-
+  if(buttonCheck.className === 'deleteButtons'){
   //if element clicked, is the delete button: delete that li
-
-
-  //update id numbering system
-  //refresh?
-})
+    console.log('ready to delete item');
+    handlers.deleteTodo(event.target.parentNode.id);
+  };
+});
